@@ -145,14 +145,14 @@ class TestAccountService(TestCase):
 
     def test_read_an_invalid_account(self):
         """It should check invalid Read response"""
-        account_id = 0 #invalid id 
+        account_id = 0  # invalid id
         resp = self.client.get(
             f"{BASE_URL}/{account_id}", content_type="application/json"
         )
 
         # assert that the resp.status_code is status.HTTP_404_NOT_FOUND
         self.assertEqual(resp.status_code, status.HTTP_404_NOT_FOUND)
-    
+
     def test_delete_account(self):
         """It should Delete an Account"""
         account = self._create_accounts(1)[0]
